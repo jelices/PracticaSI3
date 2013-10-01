@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+
+<struts-config>
+
+
+
+<!-- ================================================ Form Bean Definitions -->
+
+<form-beans>
+	<form-bean name="actualizarFormB" type="forms.ActualizarForm"/>
+	<form-bean name="loginFormB" type="forms.LoginForm"/>
+	<form-bean name="registro1FormB" type="forms.Registro1Form"/>
+	<form-bean name="registro2FormB" type="forms.Registro2Form"/>
+	<form-bean name="registro3FormB" type="forms.Registro3Form"/>
+	<form-bean name="cambiarPasswordFormB" type="forms.CambiarPasswordForm"/>
+	<form-bean name="editarFormB" type="forms.EditarForm"/>
+	<form-bean name="subvencionFormB" type="forms.SubvencionForm"/>
+	<form-bean name="buscarFormB" type="forms.BuscarForm"/>
+</form-beans>
+
+<!-- =========================================== Global Forward Definitions -->
+
+    <global-forwards>
+        <forward name="indice" path="/index.jsp"/>
+    </global-forwards>
+
+<!-- =========================================== Action Mapping Definitions -->
+
+<action-mappings>
+	<action path="/actualizar" name="actualizarFormB" type="actions.ActualizarAction" scope="session">
+		<forward  name="success" path="/index.jsp" />
+	</action>
+	<action path="/login" type="actions.LoginAction" name="loginFormB" scope="session">
+		<forward  name="success" path="/index.jsp" />
+		<forward  name="failure" path="/index.jsp" />
+	</action>
+	<action path="/registro1" type="actions.Registro1Action" name="registro1FormB" scope="session">
+		<forward  name="success" path="/index.jsp" />
+		<forward  name="failure" path="/index.jsp" />
+	</action>
+	<action path="/registro2" type="actions.Registro2Action" name="registro2FormB" scope="session">
+		<forward  name="success" path="/index.jsp" />
+		<forward  name="failure" path="/index.jsp" />
+	</action>
+	<action path="/registro3" type="actions.Registro3Action" name="registro3FormB" scope="session">
+		<forward  name="success" path="/index.jsp" />
+		<forward  name="failure" path="/index.jsp" />
+	</action>
+	<action path="/cambiarPassword" type="actions.CambiarPasswordAction" name="cambiarPasswordFormB" scope="session">
+		<forward  name="success" path="/index.jsp" />
+		<forward  name="failure" path="/index.jsp" />
+	</action>
+	<action path="/editarPerfil" type="actions.EditarPerfilAction" name="registro2FormB" scope="session">
+		<forward  name="success" path="/index.jsp" />
+		<forward  name="failure" path="/index.jsp" />
+	</action>
+	<action path="/cambiarInformes" type="actions.CambiarInformesAction" name="registro3FormB" scope="session">
+		<forward  name="success" path="/index.jsp" />
+		<forward  name="failure" path="/index.jsp" />
+	</action>
+	<action path="/editarUsuarios" type="actions.EditarUsuariosAction" scope="session">
+		<forward  name="success" path="/index.jsp" />
+	</action>
+	<action path="/eliminarUsuario" type="actions.EliminarUsuarioAction" scope="session">
+		<forward  name="success" path="/index.jsp" />
+	</action>
+	<action path="/editarUsuario" type="actions.EditarUsuarioAction" name="editarFormB" scope="session">
+		<forward  name="deleteSuccessful" path="/index.jsp" />
+		<forward  name="editarPerfil" path="/index.jsp" />
+		<forward  name="cambiarInformes" path="/index.jsp" />
+		<forward  name="failure" path="/index.jsp" />
+	</action>
+	<action path="/editarSubvenciones" type="actions.EditarSubvencionesAction" scope="session">
+		<forward  name="success" path="/index.jsp" />
+	</action>
+	<action path="/borrarSubvencion" type="actions.EliminarSubvencionAction" scope="session">
+		<forward  name="success" path="/index.jsp" />
+	</action>
+	<action path="/editarSubvencion" type="actions.EditarSubvencionAction" name="editarFormB" scope="session">
+		<forward  name="deleteSuccessful" path="/index.jsp" />
+		<forward  name="modificarSubvencion" path="/index.jsp" />
+		<forward  name="failure" path="/index.jsp" />
+	</action>
+	<action path="/nuevaSubvencion" type="actions.NuevaSubvencionAction" name="subvencionFormB" scope="session">
+		<forward  name="success" path="/index.jsp" />
+		<forward  name="failure" path="/index.jsp" />
+	</action>
+	<action path="/modificarSubvencion" type="actions.ModificarSubvencionAction" name="subvencionFormB" scope="session">
+		<forward  name="success" path="/index.jsp" />
+		<forward  name="failure" path="/index.jsp" />
+	</action>
+	<action path="/buscar" type="actions.BuscarAction" name="buscarFormB" scope="session">
+		<forward  name="success" path="/index.jsp" />
+		<forward  name="failure" path="/index.jsp" />
+	</action>
+	<action path="/enviarEmail" type="actions.EnviarEmailAction" scope="session">
+		<forward  name="success" path="/index.jsp" />
+	</action>
+	
+</action-mappings>
+
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames" value="/org/apache/struts/validator/validator-rules.xml, /WEB-INF/validation.xml"/>
+  </plug-in>
+  
+  <plug-in className="modelo.plugin.QuartzPlugin" />
+
+</struts-config>
